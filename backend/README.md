@@ -19,3 +19,4 @@ uvicorn app.main:app --reload --port 8000
 - `GET /health`: estado básico.
 - `GET /version`: devuelve versión y nombre en clave.
 - `GET /sources/probe`: sondea Eurostat, Banco de España e INE y aplica la capa de caché configurada.
+- `GET /dashboard`: panel HTML de diagnóstico con la información recibida desde cada fuente de datos.
