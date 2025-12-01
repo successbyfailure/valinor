@@ -13,6 +13,9 @@ Dashboard para explorar variables económicas procedentes de Eurostat, Banco de 
 - `infra/`: espacio reservado para artefactos de infraestructura adicionales.
 - `scripts/`: utilidades de línea de comandos (por ejemplo, `probe_data_sources.py`).
 
+## Integración continua
+- GitHub Actions construye la imagen Docker del backend en cada `push` a `main` y en los `pull request` dirigidos a dicha rama, usando el `Dockerfile` ubicado en `backend/`.
+
 ## Ejecución con Docker Compose
 1. Copia las variables de ejemplo: `cp .env.example .env`.
 2. Arranca los servicios: `docker compose up --build`.
