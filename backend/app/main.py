@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 
 from .cache import build_cache
 from .config import get_settings, load_version_config
@@ -27,6 +28,11 @@ async def healthcheck() -> dict[str, str]:
 @app.get("/version")
 async def version() -> dict[str, str]:
     return {"version": version_config.version, "codename": version_config.codename}
+
+
+@app.get("/", include_in_schema=False)
+async def root() -> RedirectResponse:
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/sources/probe")
